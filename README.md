@@ -1,2 +1,2 @@
-# MonteCarloGen-v1
+# MonteCarloGen
 Simple Monte Carlo generator
