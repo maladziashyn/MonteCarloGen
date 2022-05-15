@@ -1,9 +1,15 @@
 import matplotlib.pyplot as plt
+import os
 import pandas as pd
 import random
 
 from datetime import datetime
 from PIL import Image
+
+
+SAVE_DIR = os.path.join(os.getcwd(), "images")
+if not os.path.isdir(SAVE_DIR):
+    os.mkdir(SAVE_DIR)
 
 
 def run_mc_single(settings):
@@ -133,8 +139,10 @@ def run_mc_single(settings):
                verticalalignment='top', bbox=props)
 
     n = datetime.now()
-    img_path = f"images/img_{n.year:02d}{n.month:02d}{n.day:02d}" \
+
+    img_name = f"img_{n.year:02d}{n.month:02d}{n.day:02d}" \
                f"_{n.hour:02d}{n.minute:02d}{n.second:02d}.png"
+    img_path = os.path.join(SAVE_DIR, img_name)
     fig.savefig(img_path)
 
     im = Image.open(img_path)
