@@ -41,9 +41,11 @@ def run_mc_single(settings):
                 append_value = eq_curve[x - 1] * (1 - fraction)
 
             eq_curve.append(append_value)
-        data[s] = eq_curve
+        if len(data) < settings['random curves']:
+            data[s] = eq_curve
 
-        mdf = pd.DataFrame(data[s])
+        # mdf = pd.DataFrame(data[s])
+        mdf = pd.DataFrame(eq_curve)
         mdf.rename(columns={0: 'Equity'}, inplace=True)
         mdf['HWM'] = mdf['Equity'].cummax()
         mdf['DD'] = 1 - mdf['Equity'] / mdf['HWM']
@@ -51,7 +53,7 @@ def run_mc_single(settings):
 
         mdds['MDD'].append(this_mdd)
         mdds['Ruin'].append(this_mdd >= my_ruin)
-        mdds['FinCap'].append(data[s][-1])
+        mdds['FinCap'].append(eq_curve[-1])
 
     df_mdds = pd.DataFrame(mdds)
     risk_of_ruin = sum(df_mdds['Ruin']) / simulations_count
@@ -85,8 +87,9 @@ def run_mc_single(settings):
         f'{texts_en_ru["Ruin"][lang_id]}: {my_ruin * 100:.1f}%\n\n' \
         f'{texts_en_ru["Risk of ruin"][lang_id]}: {risk_of_ruin * 100:.1f}%'
 
-    df1 = pd.DataFrame(data)
-    df = df1[random.sample(range(simulations_count), random_curves)]
+    # df1 = pd.DataFrame(data)
+    df = pd.DataFrame(data)
+    # df = df1[random.sample(range(simulations_count), random_curves)]
     max_val = df.max().max()
 
     distr_mdds = df_mdds['MDD']

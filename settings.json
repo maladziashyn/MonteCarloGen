@@ -1,7 +1,7 @@
 {
-    "simulations count": 100,
+    "simulations count": 500,
     "random curves": 10,
-    "trades count": 1000,
+    "trades count": 800,
     "win rate": 0.43,
     "win loss ratio": 1.6,
     "fraction": 0.01,

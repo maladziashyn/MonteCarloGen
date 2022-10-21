@@ -188,7 +188,8 @@ btn_start = tk.Button(
 )
 btn_start.pack()
 # buttonStart.grid(row=1, column=0)
-# buttonQuit = Button(root, text=f"{tkTexts['Quit'][mySettings['lang id']]}", command=root.destroy)
+# buttonQuit = Button(root, text=f"{tkTexts['Quit'][mySettings['lang id']]}",
+# command=root.destroy)
 # buttonQuit.grid(row=1, column=1)
 
 root.protocol("WM_DELETE_WINDOW", on_exit)
