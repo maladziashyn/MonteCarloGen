@@ -1,11 +1,11 @@
 {
-    "simulations count": 500,
-    "random curves": 10,
-    "trades count": 800,
-    "win rate": 0.43,
-    "win loss ratio": 1.6,
-    "fraction": 0.01,
-    "my ruin": 0.2,
+    "simulations count": 2000,
+    "random curves": 15,
+    "trades count": 120,
+    "win rate": 0.6207,
+    "win loss ratio": 3.0156,
+    "fraction": 0.029,
+    "my ruin": 0.3,
     "lang id": 0,
     "bins count": 20
 }

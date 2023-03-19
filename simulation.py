@@ -81,11 +81,11 @@ def run_mc_single(settings):
         f'{texts_en_ru["Simulations"][lang_id]}: {simulations_count}\n' \
         f'{texts_en_ru["Random curves"][lang_id]}: {random_curves}\n\n' \
         f'{texts_en_ru["Trades"][lang_id]}: {trades_count}\n' \
-        f'{texts_en_ru["Win Rate"][lang_id]}: {win_rate * 100:.1f}%\n' \
-        f'{texts_en_ru["W/L ratio"][lang_id]}: {win_loss_ratio:.1f}\n' \
+        f'{texts_en_ru["Win Rate"][lang_id]}: {win_rate * 100:.3f}%\n' \
+        f'{texts_en_ru["W/L ratio"][lang_id]}: {win_loss_ratio:.4f}\n' \
         f'{texts_en_ru["Fraction"][lang_id]}: {fraction * 100:.2f}%\n' \
         f'{texts_en_ru["Ruin"][lang_id]}: {my_ruin * 100:.1f}%\n\n' \
-        f'{texts_en_ru["Risk of ruin"][lang_id]}: {risk_of_ruin * 100:.1f}%'
+        f'{texts_en_ru["Risk of ruin"][lang_id]}: {risk_of_ruin * 100:.4f}%'
 
     # df1 = pd.DataFrame(data)
     df = pd.DataFrame(data)
@@ -143,7 +143,7 @@ def run_mc_single(settings):
 
     n = datetime.now()
 
-    img_name = f"img_{n.year:02d}{n.month:02d}{n.day:02d}" \
+    img_name = f"mc-fraction-{round(my_ruin*100)}-{n.year:04d}{n.month:02d}{n.day:02d}" \
                f"_{n.hour:02d}{n.minute:02d}{n.second:02d}.png"
     img_path = os.path.join(SAVE_DIR, img_name)
     fig.savefig(img_path)
